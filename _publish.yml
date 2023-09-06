@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 569bc42f-21f7-4a65-9ff8-bea3dba416e3
+      url: 'https://simon-jones.netlify.app'

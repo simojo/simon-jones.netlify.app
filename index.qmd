@@ -1,0 +1,42 @@
+---
+title: "Professional Précis"
+subtitle: "Author: Simon Jones"
+---
+
+# About the Author
+
+I'm a senior at Allegheny College studying Computer Science and Physics.
+
+Template with a picture
+
+![Hello, my name is Simon](me.jpg)
+
+# Week 1
+
+## SE1
+
+#### Summary
+
+FIXME
+
+#### Reflection
+
+FIXME
+
+#### Use-Case
+
+FIXME
+
+## FB1
+
+#### Summary
+
+FIXME
+
+#### Reflection
+
+FIXME
+
+#### Use-Case
+
+FIXME
