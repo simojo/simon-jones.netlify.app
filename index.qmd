@@ -7,8 +7,6 @@ subtitle: "Author: Simon Jones"
 
 I'm a senior at Allegheny College studying Computer Science and Physics.
 
-Template with a picture
-
 ![Hello, my name is Simon](me.jpg)
 
 # Week 1
@@ -17,26 +15,23 @@ Template with a picture
 
 #### Summary
 
-FIXME
+In the preface of *Software Engineering at Google*, the section [Programming Over Time](https://abseil.io/resources/swe-book/html/pr01.html#programming_over_time) defines software engineering as "programming integrated over time." The purpose of the book is to answer reflective questions that Software Engineering (SE) teams should have during the lifecycle of a project and a company or institution. The thesis of the book is then laid out as motivated by three principles that should be held in the development process: **Time and Change**, **Scale and Growth**, and **Trade-offs and Costs**.
+* **Time and Change** refers to how a codebase or stack adapts over the lifetime of a team or company.
+* **Scale and Growth** refers to the need for an organization to adjust its practices and structure over the lifetime of a team or company.
+* **Trade-offs and Costs** refers to how an organization analyzes historical data to make informed decisions from the previous two points.
 
 #### Reflection
 
-FIXME
-
-#### Use-Case
-
-FIXME
+* We should *stop* doing FIXME
+* We should *start* doing FIXME
+* We should *keep* doing FIXME
 
 ## FB1
 
 #### Summary
 
-FIXME
-
 #### Reflection
 
-FIXME
-
-#### Use-Case
-
-FIXME
+* We should *stop* doing FIXME
+* We should *start* doing FIXME
+* We should *keep* doing FIXME
