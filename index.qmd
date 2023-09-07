@@ -7,31 +7,300 @@ subtitle: "Author: Simon Jones"
 
 I'm a senior at Allegheny College studying Computer Science and Physics.
 
-![Hello, my name is Simon](me.jpg)
+![](me.jpg)
 
 # Week 1
 
-## SE1
+# Week 2
+
+## SE1: Preface - Programming Over Time
 
 #### Summary
 
-In the preface of *Software Engineering at Google*, the section [Programming Over Time](https://abseil.io/resources/swe-book/html/pr01.html#programming_over_time) defines software engineering as "programming integrated over time." The purpose of the book is to answer reflective questions that Software Engineering (SE) teams should have during the lifecycle of a project and a company or institution. The thesis of the book is then laid out as motivated by three principles that should be held in the development process: **Time and Change**, **Scale and Growth**, and **Trade-offs and Costs**.
+In the preface of *Software Engineering at Google*, the section [Programming Over Time](https://abseil.io/resources/swe-book/html/pr01.html#programming_over_time) defines software engineering as "programming integrated over time." The purpose of the book is to answer reflective questions that Software Engineering (SE) teams should have during the life cycle of a project and a company or institution. The thesis of the book is then laid out as motivated by three principles that should be held in the development process: **Time and Change**, **Scale and Growth**, and **Trade-offs and Costs**.
+
 * **Time and Change** refers to how a codebase or stack adapts over the lifetime of a team or company.
 * **Scale and Growth** refers to the need for an organization to adjust its practices and structure over the lifetime of a team or company.
 * **Trade-offs and Costs** refers to how an organization analyzes historical data to make informed decisions from the previous two points.
 
-#### Reflection
+#### Action Items & Reflection
 
-* We should *stop* doing FIXME
-* We should *start* doing FIXME
-* We should *keep* doing FIXME
+* **Start doing:** In my professional and personal SE experience, this reading reminds me that I need to be aware of the changes in the people and settings around me in order to be an amiable colleague. Paying attention to the culture that surrounds the work environment will be something that I will try to work on.
+* **Stop doing:**I should also make steps towards stopping holding a certain attitude towards the tooling used in class. Software is about *adapting* to changes rather than resisting them. That said, one should maintain a discerning attitude when acquiring new tooling to avoid being distracted by its 'shininess.'
+* **Keep doing:** As long as cs203 continues to meet regularly and heavily rely on the issue tracker, we will proceed to evolve as a group and reach an efficient workflow.
 
-## FB1
+## FB1: Introduction to Software Testing
 
 #### Summary
 
-#### Reflection
+#### Action Items & Reflection
 
-* We should *stop* doing FIXME
-* We should *start* doing FIXME
-* We should *keep* doing FIXME
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 3
+
+## SE2: What is Software Engineering?
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB2: Coverage
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 4
+
+## SE3: How to Work Well on Teams
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB3: Fuzzing
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 5
+
+## SE4: Knowledge Sharing
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB4: Mutation Analysis
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 6
+
+(Executable Examination)
+
+# Week 7
+
+## SE5: Engineering for Equity
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB5: Mutation-Based Fuzzing
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 8
+
+## SE6: How to Lead a Team
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB6: Fuzzing with Grammars
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 9
+
+## SE7: Leading at Scale
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB7: Efficient Grammar Fuzzing
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 10
+
+## SE8: Style Guides and Rules
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB8: Parsing Inputs
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 11
+
+(Executable Examination)
+
+# Week 12
+
+## SE9: Code Review
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## FB9: Reducing Failure-Inducing Inputs
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 13
+
+## SE10: Documentation
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## DB1: Introduction to Debugging
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 14
+
+## SE11: Testing Overview
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## DB2: Tracing Executions
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 15
+
+## SE12: Unit Testing
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## DB3: Assertions
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+# Week 16
+
+## DB4: Statistical Debugging (Automatic Fault Localization)
+
+#### Summary
+
+#### Action Items & Reflection
+
+* **Start doing:**
+* **Stop doing:**
+* **Keep doing:**
+
+## Final review of all content on Developer Development web site
+
+Final exam for this class is December 14, 2023 at 09:00
