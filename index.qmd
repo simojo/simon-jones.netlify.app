@@ -33,11 +33,43 @@ In the preface of *Software Engineering at Google*, the section [Programming Ove
 
 #### Summary
 
+The chapter **Introduction to Software Testing** in the Fuzzing Book walks us through the most fundamental idea of what software testing looks like, starting from the most basic example of a square root finder that finds only real roots $(f : \mathbb{R}^+ \to \mathbb{R}^+)$. We are presented with the idea of proving the said function's correctness by a single example input; however we find the more general approach of verifying the function's result thanks to the fact that $\sqrt{x}*\sqrt{x}=x$ for all $x \in \mathbb{R}$. We can do this for any number, say 2, to demonstrate:
+
+```{python}
+def my_sqrt(x):
+    """Computes the square root of x, using the Newton–Raphson method"""
+    approx = None
+    guess = x / 2
+    while approx != guess:
+        approx = guess
+        guess = (approx + x / approx) / 2
+    return approx
+
+assert my_sqrt(2) * my_sqrt(2) == 2
+```
+
+But, this manual approach becomes painful after writing even a small amount. The book then informs us of automating test execution, in which expected results are stored in values and checked against the actual result, throwing an error if they do not match. The only limitation with this is that python's numeric types rarely are exactly equal up to a certain precision. To flush this problem, the book explains that a potential solution could use a pre-set margin of error to ensure the result is within its bounds, or to simply use `math.isclose()`, which apparently is the way of a true *pythonista*.
+
+More automated methods of testing are discussed, including timing execution time of iterated tests:
+
+```{python}
+from Timer import Timer
+EPSILON = 1e-8 # apparently good margin of error (don't take my word for it, ask Andreas Zeller)
+with Timer() as t:
+  for i in range(1, 1000):
+    assert (my_sqrt(i) * my_sqrt(i) - i) < EPSILON
+print(t.elapsed_time())
+```
+
+Additionally, the book mentions opting for a range of randomly selected numbers to be used rather than incremental cases, which ensures an even distribution of numbers. The only caveat is that edge cases, also called counter examples, are found with a probability of roughly one in one million (e.g. 0). This idea brings us to the final one mentioned in this article, which is *the limits of testing*.
+
+**The limits of testing** are that testing, as with any conjecture in a software setting, can never be 100% deterministic of correct results. Tests only go so far to ensure input will translate to a correct output, but they are the best weapon we as developers have to avoid runtime errors.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** I plan to keep up with the test cases that we will be implementing in `chasten` this year. This will be a good idea because of the variety of developers we will have working on the project. I previously would never write test cases, but now that our development team is so large, I see this as a must. This will allow developers to add tests to eliminate the possibility of a certain function leading to a bug later in the development process.
+* **Stop doing:** `null`
+* **Keep doing:** The `chasten` team should, as a whole, continue to keep the discussion of the importance of testing in the foreground and collectively discuss how we can begin to approach test case creation for the more complex objects we will be working with this semester.
 
 # Week 3
 
