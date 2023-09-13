@@ -101,11 +101,15 @@ Being able to weight cost effectively is a tool used in leadership. Google's exa
 
 #### Summary
 
+In this chapter, we learn about black and white box testing. Black box testing allows us to test the *specified* behavior of a system, while white box testing focuses on revealing which part in the internal structure of the program went wrong during the testing process. Both have their beneifts, but generally white-box testing allows us to debug more easily. In assisting white-box testing, we can use `sys.settrace(f(frame, event, arg))` to trace the execution of the function. This provides us with the lines that are stepped through during program execution. These lines are then put into a set, which tells us the lines that have been covered *at least* once.
+
+We can also compare coverage between various test cases, which can provide a different aspect of code usage based on input. If you incorporate fuzzing into this, you could input every possible kind of data type in a function to test how the branches are covered statistically. If you discover a branch that never is covered for all iterations of fuzzing, then you have a serious issue! This is just one example of the many benefits of code coverage used in tandem with fuzzing.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** After we discuss this in class, we should all make it a point to include coverage analysis in `chasten` so that we only save the necessary code we have. In the branch I am currently working on, I will look into see if this is a possibility.
+* **Stop doing:** N/A
+* **Keep doing:** We should keep regularly talking about principles like these. It helps keep us all on the same page as to where we should be headed as a development team.
 
 # Week 4
 
