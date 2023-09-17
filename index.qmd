@@ -83,12 +83,14 @@ In the chapter *What is Software Engineering?* of the [Software Engineering at G
 Technical debt and the cost of finesse are two things that negatively affect the health of a codebase. As said in this chapter: "We’ve taken to saying, “It’s programming if 'clever' is a compliment, but it’s software engineering if 'clever' is an accusation.”" 'Clever' work is seldom obvious and maintainable, which is why it harms a long lived system. If, for example, a side effect of some 'clever' code produced an unexpected behavior on the user-side, the user could begin to rely on that functionality *without realizing it was done unintentionally*. This idea is known as **Hyrum's Law**, which states that all observable behaviors in your tool will be relied on my some entity. A way to fight against technical debt is to implement scalability, which allows a codebase to be supported properly as it grows (i.e. the company grows with the code base). Weak points in scalability can be discovered by asking *"Does my organization have a procedure in place to grow the amount of man power when the codebase or workload grows?"* If the answer is no, then there is a high chance you have a scaling problem.
 
 Cost is a large factor in decision making, and this chapter briefly discusses its weight. There are various costs associated with decision making in SWE. Some of which are:
+
 * Financial costs (e.g., money)
 * Resource costs (e.g., CPU time)
 * Personnel costs (e.g., engineering effort)
 * Transaction costs (e.g., what does it cost to take action?)
 * Opportunity costs (e.g., what does it cost to not take action?)
 * Societal costs (e.g., what impact will this choice have on society at large?)
+
 Being able to weight cost effectively is a tool used in leadership. Google's example of effective cost analysis is the ironic value of markers in a work place setting. Markers are cheap, but they are often found missing or dried up in meeting rooms. Google weighed the cost of constantly supplying markers to their employees against the flow of a meeting or brainstorming session being brought to a halt, and they decided it was better to yield a free flowing brainstorming session than to pay the price for regularly new markers. The decision has proven to do them well.
 
 #### Action Items & Reflection
