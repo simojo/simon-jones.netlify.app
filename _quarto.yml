@@ -2,20 +2,30 @@ project:
   type: website
 
 website:
+  site-url: https://simon-jones.netlify.app/
+  repo-url: https://github.com/simojo/simon-jones.netlify.app
   title: "Simon Jones"
+  repo-actions: [source]
+  repo-branch: "master"
   page-navigation: true
   search:
     location: navbar
     type: textbox
   navbar:
-    background: primary
     left:
       - href: index.qmd
         text: Home
+      - href: comp/index.qmd
+        text: Comp
 
 format:
   html:
-    theme: slate
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss]
+    mainfont: "Roboto Mono"
+    fontsize: 1.1em
+    linestretch: 1.7
     css: styles.css
     toc: true
     highlight-style: gruvbox

@@ -1,0 +1,41 @@
+---
+title: Senior Comp Fall Schedule
+date: '2023-09-20'
+date-format: long
+description: <em>A schedule of action items for this fall combining both CS and Physics.</em>
+toc: true
+page-layout: full
+---
+
+```
+   September 2023                      October 2023    
+Su Mo Tu We Th Fr Sa               Su Mo Tu We Th Fr Sa
+                1  2   Week 1       1  2  3  4  5  6  7   Week 6
+ 3  4  5  6  7  8  9   Week 2       8  9 10 11 12 13 14   Week 7
+10 11 12 13 14 15 16   Week 3      15 16 17 18 19 20 21   Week 8
+17 18 19 20 21 22 23   Week 4      22 23 24 25 26 27 28   Week 9
+24 25 26 27 28 29 30   Week 5      29 30 31               Week 10
+
+    November 2023                      December 2023   
+Su Mo Tu We Th Fr Sa               Su Mo Tu We Th Fr Sa
+          1  2  3  4   Week 10                     1  2   Week 14
+ 5  6  7  8  9 10 11   Week 11      3  4  5  6  7  8  9   Week 15
+12 13 14 15 16 17 18   Week 12     10 11 12 13 14 15 16   Week 16
+19 20 21 22 23 24 25   Week 13     17 18 19 20 21 22 23
+26 27 28 29 30         Week 14     24 25 26 27 28 29 30
+                                   31                            
+```
+
+Date | Description | Department
+---|---|---
+**06 October** | Proposal due by the end of the fifth full week | Physics
+**09 October** | Outline of project with bibliography (~2-3 pages)  | Physics
+**09-13 October** | Informal presentation/discussion (roundtable discussion) | Physics
+**13 October at 11:59 PM** | Submit the final version as a working project artifact prototype. | CS
+**16 October - 01 December** | Oral defense of senior theses project proposals. | CS
+**17 November** | Progress report due by the end of the 11th full week | Physics
+**27-31 November** | Oral presentations | Physics
+**27-31 November** | First version of paper to first and second reader | Physics
+**4-19 December** | Writing and finalizing two chapters of a senior thesis document. | CS
+**18-19 December** | Final version of paper due by the end of the last full week | Physics
+**19 December at 11:59 PM** | Submit the final version of two chapters of your senior thesis as a tagged release in the document's GitHub repository. | CS
