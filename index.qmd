@@ -119,11 +119,25 @@ We can also compare coverage between various test cases, which can provide a dif
 
 #### Summary
 
+The chapter [How to Work Well on Teams](https://abseil.io/resources/swe-book/html/ch02.html) in the [Software Engineering at Google Book](https://abseil.io/resources/swe-book/html/toc.html) encourages healthy co working culture. The first principle to understand is that geniuses are never completely self made; every successful leader has had to work collaboratively at some point. The misconception that hard working individuals only get work done alone is a myth. It creates insecurity and sends narcissists on their own joy ride of self sufficiency (think about the connotations of "10x developer", for example). Too much lone ranger-esque coding in your company could lead to a higher bus factor: the number of people that need to get bit by a bus before your project is completely doomed.
+
+Through team work, we must not only work collaboratively, but seek to encourage each other through correction and review.
+
+> In a professional software engineering environment, criticism is almost never personal—it’s usually just part of the process of making a better project.  The trick is to make sure you (and those around you) understand the difference between a constructive criticism of someone’s creative output and a flat-out assault against someone’s character.
+
+It is very easy to get offended from hearing that your work is not up-to-par. Supervisors and peers should be mindful of how they are leveraging their position of knowledge over those that they are helping.
+
+I understand the consequences of individual based work in a company. I have worked with individuals where, if they were hit by a bus, the company would surely have lost hundreds of thousands of dollars over the course of a week. We were a team of four people, and each of us kept strictly to our own little feature sets and subset of our main stack. Although it can be tempting to take matters into one's own hands and micromanage or even take complete control of a project, I will steer clear of this in my future career, regardless of the position.
+
+I would like to spend time analyzing our conflicts that we have had in class in order to understand the minds of my peers more. Looking back and thinking about our class discussions, I can definitely tell that some people in the class perform better when telling others what to do, while some people perform better while being told what to do. This dynamic is something that will have to discover together as a team.
+
+As it stands, it is a good practice that we write up incident reports. This was mentioned in the book, and we have already written an incident report concerning a minor issue we had. Although painful, this fosters responsibility and awareness of mistakes towards a collective awareness.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** Paying attention to my interactions with team members and noting what personality types are in the room around me.
+* **Stop doing:** Working on feature branches strictly alone, or at least not writing *completely* indicative test cases that describe the intended functionality of my code.
+* **Keep doing:** Writing out incident reports; although painful, those are helpful and help us to constructively criticize ourselves.
 
 ## FB3: Fuzzing
 
