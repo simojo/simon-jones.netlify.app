@@ -139,15 +139,19 @@ As it stands, it is a good practice that we write up incident reports. This was 
 * **Stop doing:** Working on feature branches strictly alone, or at least not writing *completely* indicative test cases that describe the intended functionality of my code.
 * **Keep doing:** Writing out incident reports; although painful, those are helpful and help us to constructively criticize ourselves.
 
-## FB3: Fuzzing
+## FB3: Fuzzing: Breaking Things with Random Inputs
 
 #### Summary
 
+This chapter in the Fuzzing Book, **Fuzzing: Breaking Things with Random Inputs**, explains the more specific details of fuzzing and even provides some examples of fuzzing implementations. We are familiarized with the concept of a `Runner`, which is usually a class responsible for managing the testing of function inputs. We also learn about the origins of fuzzing, which came from a lab in UW-Madison during a thunderstorm, when interference coming through the phone lines falsely sent information to programs. The fuzziness of the random input from the phone lines was dubbed 'fuzzing', as we know it today.
+
+Through reading this chapter, I certainly feel overwhelmed by the complexities of fuzzing. I do wish to continue to add fuzzing test cases to programs that we create, though. I have already implemented a few in my feature branch. The biggest hurdle in this is the use of `hypothesis`, a python library. It is fairly complex, and it requires thorough reading of its documentation to fully understand it.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** Reading through the documentation of `hypothesis` in order to better implement fuzzing strategies in the `tests/` for chasten.
+* **Stop doing:** N/A
+* **Keep doing:** Trying to implement test cases in every feature branch.
 
 # Week 5
 
