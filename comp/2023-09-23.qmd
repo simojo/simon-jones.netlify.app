@@ -58,6 +58,13 @@ items = [
     0.95,
     2.00,
   ),
+  Item(
+    "GoolRC SE 30A 4in1 Mini Brushless ESC BLHeli_S 2-6S BEC",
+    "4in1 20mm x 20mm mount post ESC with cheap pricepoint. https://www.amazon.com/GoolRC-Special-Brushless-BLHeli_S-20x20MM/dp/B0C49XFK6S/ref=sr_1_22?keywords=4in1+esc&qid=1695511577&sr=8-22",
+    1,
+    27.99,
+    0.00,
+  ),
 ]
 
 grand_total = 0.00
