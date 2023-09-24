@@ -1,0 +1,93 @@
+---
+title: The Shopping List
+date: '2023-09-23'
+date-format: long
+description: <em>List of items I will need to use for my project.</em>
+toc: true
+page-layout: full
+---
+
+```{python}
+# code for calculating estimated total
+class Item:
+  Name = ""
+  Description = ""
+  Qty = 0
+  UnitPrice = 0.00
+  Shipping = 0.00
+  def __init__(self, Name_, Description_, Qty_, UnitPrice_, Shipping_):
+    self.Name = Name_
+    self.Description = Description_
+    self.Qty = Qty_
+    self.UnitPrice = UnitPrice_
+    self.Shipping = Shipping_
+
+items = [
+  Item(
+    "V105Q131A-940 VCSEL Laser Array",
+    "Sub-millimeter VCSEL laser array (https://www.mouser.com/ProductDetail/ams-OSRAM/V105Q131A-940?qs=A6eO%252BMLsxmSMav0sPIh%252B3g%3D%3D&countryCode=US&currencyCode=USD)",
+    1,
+    13.49,
+    7.99,
+  ),
+  Item(
+    "Adafruit VL53L4CX Time of Flight Distance Sensor",
+    "I2C proximity sensor (https://www.adafruit.com/product/5425)",
+    12,
+    13.46,
+    2.00,
+  ),
+  Item(
+    "STEMMA QT / Qwiic JST SH 4-pin to Premium Male Headers Cable - 150mm Long",
+    "Output I2C cable to plug into microcontroller/computer (https://www.adafruit.com/product/4209)",
+    1,
+    0.95,
+    2.00,
+  ),
+  Item(
+    "STEMMA QT / Qwiic JST SH 4-Pin Cable - 50mm Long",
+    "I2C cable for daisy chaining ToF sensors (https://www.adafruit.com/product/4399)",
+    7,
+    0.95,
+    2.00,
+  ),
+  Item(
+    "STEMMA QT / Qwiic JST SH 4-pin Cable - 100mm Long",
+    "I2C cable for connecting largest distance between ToF sensors (https://www.adafruit.com/product/4210)",
+    1,
+    0.95,
+    2.00,
+  ),
+]
+
+grand_total = 0.00
+
+headers = [[title for title in vars(items[0]).keys()]]
+itemsExtracted = [vars(item) for item in items]
+tax = 0.06
+
+for item in itemsExtracted:
+  print("-" * 34)
+  for key in item:
+    print(f"{key}: {item[key]}")
+  subtotal = item["Qty"] * item["UnitPrice"] + item["Shipping"]
+  total = subtotal * (1 + tax)
+
+  grand_total += total
+
+  subtotal_formatted = f"${subtotal:,.2f}"
+  tax_formatted =      f" {tax:,.2f}"
+  total_formatted =    f"${total:,.2f}"
+
+  print(f"{item['Qty']} @ ${item['UnitPrice']:,.2f} + ${item['Shipping']:,.2f} =")
+  print(f"                Subtotal: {subtotal_formatted:>8}")
+  print(f"                Tax:      {tax_formatted:>8}")
+  print(f"                Total:    {total_formatted:>8}")
+
+grand_total_formatted = f"${grand_total:,.2f}"
+print("-" * 36)
+print("|" + (" " * 34) + "|")
+print("|" + f" GRAND TOTAL: {grand_total_formatted:>19} " + "|")
+print("|" + (" " * 34) + "|")
+print("-" * 36)
+```
