@@ -159,11 +159,30 @@ Through reading this chapter, I certainly feel overwhelmed by the complexities o
 
 #### Summary
 
+This excerpt, called [Knowledge Sharing](https://abseil.io/resources/swe-book/html/ch03.html), warns of the dangers of having a poor workplace environment. There are many problems that can arise from such a problem. Firstly, this may result in creating *islands of knowledge* that lead to the formation of a single point of failure. This is also known as doomsday for your team when any kind of trial comes. Secondly, your workplace culture may be so harsh that the team members have anxiety because of the adversarial nature of the senior developers. Here is a table outlining recommended patterns along with antipatterns of how to interact with lesser experienced individuals:
+
+Recommended patterns (cooperative) | Antipatterns (adversarial)
+---|---
+Basic questions or mistakes are guided in the proper direction | Basic questions or mistakes are picked on, and the person asking the question is chastised
+Explanations are given with the intent of helping the person asking the question learn | Explanations are given with the intent of showing off one’s own knowledge
+Responses are kind, patient, and helpful | Responses are condescending, snarky, and unconstructive
+Interactions are shared discussions for finding solutions | Interactions are arguments with “winners” and “losers”
+
+When dealing with legacy code, we are presented the principle of Chesterton's Fence, in which someone who desires to remove a historically put-in-place item is confronted to discern why it's worth removing if they do not understand the purpose for why it was initially put in place. This mental challenge can yield grand results when put in practice.
+
+As one navigates a legacy code base, many questions can arise; these questions should be sought after for answers, but, upon having the question(s) answered, one must document the response! The knowledge obtained from the answer should be piped right back into the knowledge base of the team. This especially applies to Discord, which we use while developing `chasten`.
+
+> Code is read far more than it is written
+
+Writing comments and aiming for high readability standards can assist the life span of a code base. At Google, this stems out of the culture they created in their development teams.
+
+*As I reflect on this reading,** I am faced with the hard truth that "code is read far more than it is written." This makes me wonder of all of the time I was guilty of *programming* instead of doing *software engineering*, what I was supposed to be doing. Looking ahead towards our work with `chasten`, I see progress in the psychological safety we have fostered; I just wish that people would buy into it and ask more questions. I wish that I saw more effort from the whole team collectively, instead of only certain pockets of effort. The work load of writing all of these reflection assignments and having to ship the code is too much. For students who are just starting this thing we call **CS**, they're not prepared to dive in. They're spending hours on learning how to develop in the `chasten` code base while being tasked with writing a 500 word essay simultaneously. If anything is going to hinder our progress, I believe that will.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** Incorporating the idea of Chesterton's Fence into not only my work on `chasten`, but my approach to interacting with other people. Being *slow to speak* and quick to encourage and contemplate the work that someone has already put into something is a valuable life skill. I also wish to be more conscious of my words to my peers in the class to avoid speaking in a way that is not welcoming to others! The last thing I want is for people to feel gated out of working on issues with each other.
+* **Stop doing:** Stop leaving the information gained through Discord conversations to die in that channel. We need to be saving that information and posting it to our knowledge base.
+* **Keep doing:** Keep having open discussions in the Discord chat for the purpose of helping each other out and resolving questions quickly.
 
 ## FB4: Mutation Analysis
 
