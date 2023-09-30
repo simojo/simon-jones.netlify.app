@@ -176,7 +176,7 @@ As one navigates a legacy code base, many questions can arise; these questions s
 
 Writing comments and aiming for high readability standards can assist the life span of a code base. At Google, this stems out of the culture they created in their development teams.
 
-*As I reflect on this reading,** I am faced with the hard truth that "code is read far more than it is written." This makes me wonder of all of the time I was guilty of *programming* instead of doing *software engineering*, what I was supposed to be doing. Looking ahead towards our work with `chasten`, I see progress in the psychological safety we have fostered; I just wish that people would buy into it and ask more questions. I wish that I saw more effort from the whole team collectively, instead of only certain pockets of effort. The work load of writing all of these reflection assignments and having to ship the code is too much. For students who are just starting this thing we call **CS**, they're not prepared to dive in. They're spending hours on learning how to develop in the `chasten` code base while being tasked with writing a 500 word essay simultaneously. If anything is going to hinder our progress, I believe that will.
+*As I reflect on this reading,* I am faced with the hard truth that "code is read far more than it is written." This makes me wonder of all of the time I was guilty of *programming* instead of doing *software engineering*, what I was supposed to be doing. Looking ahead towards our work with `chasten`, I see progress in the psychological safety we have fostered; I just wish that people would buy into it and ask more questions. I wish that I saw more effort from the whole team collectively, instead of only certain pockets of effort. The work load of writing all of these reflection assignments and having to ship the code is too much. For students who are just starting this thing we call **CS**, they're not prepared to dive in. They're spending hours on learning how to develop in the `chasten` code base while being tasked with writing a 500 word essay simultaneously. If anything is going to hinder our progress, I believe that will.
 
 #### Action Items & Reflection
 
@@ -188,11 +188,75 @@ Writing comments and aiming for high readability standards can assist the life s
 
 #### Summary
 
+[Mutation Analysis](https://www.fuzzingbook.org/html/MutationAnalysis.html) in the fuzzing book walks us through how *poking*, *prodding*, and slightly modifying the abstract syntax tree of our program can give us a keener insight as to how effective our test suite is.
+
+We start by creating a base class for mutation, which we can call `MuFunctionAnalyzer`:
+
+```{python}
+import ast
+import inspect
+
+class MuFunctionAnalyzer:
+    def __init__(self, fn, log=False):
+        self.fn = fn
+        self.name = fn.__name__
+        src = inspect.getsource(fn)
+        self.ast = ast.parse(src)
+        self.src = ast.unparse(self.ast)  # normalize
+        self.mutator = self.mutator_object()
+        self.nmutations = self.get_mutation_count()
+        self.un_detected = set()
+        self.mutants = []
+        self.log = log
+
+    def mutator_object(self, locations=None):
+        return StmtDeletionMutator(locations)
+
+    def register(self, m):
+        self.mutants.append(m)
+
+    def finish(self):
+        pass
+
+    def get_mutation_count(self):
+        self.mutator.visit(self.ast)
+        return self.mutator.count
+```
+
+We can then create a class responsible for atomically mutating the AST:
+
+```{python}
+class Mutator(ast.NodeTransformer):
+    def __init__(self, mutate_location=-1):
+        self.count = 0
+        self.mutate_location = mutate_location
+
+    def mutable_visit(self, node):
+        self.count += 1  # statements start at line no 1
+        if self.count == self.mutate_location:
+            return self.mutation_visit(node)
+        return self.generic_visit(node)
+```
+
+I will save all of the class inheritance that follows in the fuzzing book; the usage of the `Mutator` is that it is inherited into a class that implements ways to actually *mutate* the AST. This may involve replacing meaningful statements with a `pass` statement before `return`, changing which mathematical infix operator is called, or short circuiting the execution of a function in some other way. Once all of the helper functions for performing mutation are written, we can implement ways to interpret this. It may involve looking at a file diff of the injected code or analyzing the AST. Thankfully, python allows you to convert AST expressions back into python code, so the author of this chapter opts to do so, using `difflib` to display the mutated changes.
+
+After mutation analysis is implemented, we can analyze the effectiveness of a test case by seeing how well it flags for an error in exeuction after mutation. This score is usually a fraction representing how many times an error was caught out of the total run sequence of mutations.
+
+Once you spend enough time experimenting with mutation, you will soon find that many false positives are created from mutation. That's why the following equation exists to keep you from asking any further questions:
+
+$$
+n \geq \hat{p}\left(1-\hat{p}\right)\left(\frac{Z_{\frac{\alpha}{2}}}{\Delta}\right)^2
+$$
+
+where $n$ is the number of samples, $p$ is the parameter for the probability distribution, $\alpha$ is the accuracy desired, and $\Delta$ is the precision. This essentially tells us that, in order to gain an effective approximation of a desired accuracy, we have to take $n$ number of samples to make the unhelpful cases irrelevant.
+
+This reading has introduced to me a new topic; I never knew that this kind of analysis was possible. I am quite skeptical of its effectiveness, however, because in most other languages, there is not the convenience of the abstract syntax tree. I'm not quite sure how this could be done in compiled language, for example. In my opinion, the work it takes to do this kind of testing is not worth the effort. Software engineers should spend more time on more useful tasks, like making sure their code works when they write it.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** We should begin to consider the kind of impacts that this kind of fuzzing can have on Chasten. I don't think it would be wise to implement this yet, though.
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 6
 
