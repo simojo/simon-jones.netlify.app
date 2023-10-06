@@ -33,6 +33,7 @@ Date | Description | Department
 **09-13 October** | Informal presentation/discussion (roundtable discussion) | Physics
 **13 October at 11:59 PM** | Submit the final version as a working project artifact prototype. | CS
 **16 October - 01 December** | Oral defense of senior theses project proposals. | CS
+**22 October** | Everyone must share their slides along with a presentation video. | CS
 **17 November** | Progress report due by the end of the 11th full week | Physics
 **27-31 November** | Oral presentations | Physics
 **27-31 November** | First version of paper to first and second reader | Physics
