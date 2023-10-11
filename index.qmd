@@ -33,7 +33,7 @@ In the preface of *Software Engineering at Google*, the section [Programming Ove
 
 #### Summary
 
-The chapter **Introduction to Software Testing** in the Fuzzing Book walks us through the most fundamental idea of what software testing looks like, starting from the most basic example of a square root finder that finds only real roots $(f : \mathbb{R}^+ \to \mathbb{R}^+)$. We are presented with the idea of proving the said function's correctness by a single example input; however we find the more general approach of verifying the function's result thanks to the fact that $\sqrt{x}*\sqrt{x}=x$ for all $x \in \mathbb{R}$. We can do this for any number, say 2, to demonstrate:
+The chapter **Introduction to Software Testing** in the Fuzzing Book walks us through the most fundamental idea of what software testing looks like, starting from the most basic example of a square root finder that finds only real roots $(f : \mathbb{R}^+ \to \mathbb{R}^+)$. We are presented with the idea of proving the said function's correctness by a single example input; however we find the more general approach of verifying the function's result thanks to the fact that $\sqrt{x}\cdot\sqrt{x}=x$ for all $x \in \mathbb{R}$. We can do this for any number, say 2, to demonstrate:
 
 ```{python}
 def my_sqrt(x):
@@ -268,13 +268,40 @@ This reading has introduced to me a new topic; I never knew that this kind of an
 
 #### Summary
 
+[This article](https://abseil.io/resources/swe-book/html/ch04.html) from the Software Engineering Book at Google challenges a lax mindset on striving for workplace inclusiveness. The majority of employees in the sector of SWE are males, usually White or Asian. We have witnessed numerous facial recognition models with a bias because of an imbalance of input data. This cannot be exclusively attributed to the lack of facial data representing all races and genders; we must consider the fact that *many people have been slow to pursue diversity, race and gender wise, in the field of technology*.
+
+> When engineers do not focus on users of different nationalities, ethnicities, races, genders, ages, socioeconomic statuses, abilities, and belief systems, even the most talented staff will inadvertently fail their users.
+
+A common question concerning attaining diversity in the workplace or in a set of users goes something like this: "How can we seek to reverse [some large number of years] worth of inequity and exclusion?" Many managers and leaders stagger at the thought of combatting the centuries of inequality between different races and genders. They fail to realize that *this is not their concern*. The responsibility of a manager in a company is to consider how they can create *their* environment such that it provides a place of inclusion. It may involve asking themselves questions to discover how their workplace may be implicitly favoring a certain demographic, or it may be seeking to understand where the needs of other demographics come into play and how those needs can be met. One important example is women in the workplace. Many managers are not keen on the idea of maternity leave, and often, managers are not familiar with handling such situations. Another example may be companies that have never dealt with drug abuse among their employees. Often, individuals struggling with substance abuse are immediately fired, but an inclusive workplace would seek to help them and, in some cases, seek to help them in the rehabilitation process to retain their employment. I recall a coworker who dealt with substance abuse. They disappeared off the face of the earth, likely because they didn't think their place at our company was redeemable after the mistakes they made. This sad situation is not specific to me, however. Many employers are faced with the same situation.
+
+Wrapping up, we are left with a few key points that will help us in our endeavor:
+
+1. **Take a hard look in the mirror.**
+  * One must evaluate their own approach and presuppositions.
+
+2. **Don’t build for everyone.**
+  * A team is powerless in trying to understand different demographics if they're not hiring them themselves.
+
+3. **Design for the user who will have the most difficulty using your product.**
+  * Creating accessible technology is the first step to making sure that **everyone is on board**.
+
+4. **Don’t assume equity; measure equity throughout your systems.**
+  * One must be thorough. Committing to a single process never means ruling out all others out.
+
+5. **Change is possible.**
+  * Change is the most important part of this. Resistance to change only slows the pursuit of eventual justice.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This article reminded me of what has been troubling me lately as I continue through my last year of undergrad. I am deeply concerned at how we will ever get ourselves out of this country-wide conflict of the so-called gender gap and systemic racism. I appreciated the frankness of the article in confronting these issues, but I am still lost in how I fall short. Because of the area that I come from (Meadville, PA), I'm not very skilled at understanding other cultures, but I am always curious about other cultures. In fact, I love learning about other people's daily lives in comparison to how I live; it helps widen my perspective and sometimes challenges my suppositions on how I think one should play the *game of life*. My thoughts are scrambled with this one, but this *is* my current mental state.
+
+* **Start doing:** Considering what kinds of people will be using `chasten` in the future. Most likely, many AC CIS students will be *working on* `chasten`, so our code should be **extra** readable for that purpose! Just think about how much we understood the code base when we started...
+* **Stop doing:** N/A
+* **Keep doing:** Keep trying to improve our docs and striving for approachability in terms of our `README.md`, etc.
 
 ## FB5: Mutation-Based Fuzzing
+
+[This article](https://www.fuzzingbook.org/html/MutationFuzzer.html) from the Fuzzing Book FIXME
 
 #### Summary
 
