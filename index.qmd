@@ -301,15 +301,114 @@ This article reminded me of what has been troubling me lately as I continue thro
 
 ## FB5: Mutation-Based Fuzzing
 
-[This article](https://www.fuzzingbook.org/html/MutationFuzzer.html) from the Fuzzing Book FIXME
+[This article](https://www.fuzzingbook.org/html/MutationFuzzer.html) from the Fuzzing Book familiarizes us with **mutation-based fuzzing**, which is when we mutate valid inputs and supply them to the program that we are trying to test. Mutation-based fuzzing increases the possibility of having a valid input, and thus allow us to test the functionality of our program (when the inputs are valid) in a deeper way than what could be done with traditional fuzzing.
+
+For example, this article walks us through how to create a mutation-based fuzzer for the input of a URL parser. First, we create three functions that 'mutate' the input. This will slightly modifying the input in some way. We'll create:
+
+1. `delete_random_character(s: str) -> str`: Randomly delete a character from `s` and retunr the mutated `s`.
+2. `insert_random_character(s: str) -> str`: Randomly insert a character into `s` and return the mutated `s`.
+3. `flip_random_character(s):`: Randomly flip one bit in the ASCII representation of one of the bytes in `s` and return the mutated `s`. *(an interesting one, although, organically, it's virtually impossible with today's error correction techniques!)*
+
+```{python}
+import random
+from typing import Tuple, List, Callable, Set, Any
+from urllib.parse import urlparse
+
+
+def delete_random_character(s: str) -> str:
+    if s = "":
+        return s
+    pos = random.randint(0, len(s) - 1)
+    return s[:pos] + s[pos + 1:]
+
+
+def insert_random_character(s: str) -> str:
+    pos = random.randint(0, len(s))
+    random_character = chr(random.randrange(32, 127))
+    return s[:pos] + random_character + s[pos:]
+
+
+def flip_random_character(s: str) -> str:
+    if s == "":
+        return s
+    pos = random.randint(0, len(s) - 1)
+    c = s[pos]
+    bit = 1 << random.randint(0, 6)
+    new_c = chr(ord(c) ^ bit)
+    return s[:pos] + new_c + s[pos + 1:]
+```
+
+We can then create a function `mutate(s: str) -> str` which wraps the functions above:
+
+```{python}
+def mutate(s: str) -> str:
+    mutators = [
+        delete_random_character,
+        insert_random_character,
+        flip_random_character
+    ]
+    mutator = random.choice(mutators)
+    return mutator(s)
+```
+
+Now, let's create a function to mutate an input `n` number of times:
+
+```{python}
+def multi_mutate(s: str, n: int) -> str:
+    res = s
+    for i in range(n):
+        res = mutate(res)
+    return res
+```
+
+Now we have everything we need to test a basic function with our mutation-based fuzzing strategy we just created! As done in the Fuzzing Book, we'll test the function `http_program(url: str) -> bool`:
+
+```{python}
+def http_program(url: str) -> bool:
+    supported_schemes = ["http", "https"]
+    result = urlparse(url)
+    if result.scheme not in supported_schemes:
+        raise ValueError("Scheme must be one of " + 
+                         repr(supported_schemes))
+    if result.netloc == '':
+        raise ValueError("Host must be non-empty")
+    return True
+
+
+# test `http_program()`
+seed_input = "http://www.google.com/search?q=fuzzing"
+valid_inputs = set()
+trails = 20
+n_mutations = 100
+
+for i in range(trials):
+    input = multi_mutate(seed_input, n_mutations)
+    try:
+        result = http_program(input)
+        # input is valid, we can add it
+        # to the set of valid inputs
+        valid_inputs.add(input)
+    except ValueError:
+        # input is invalid, do not add it
+        # to the set of valid inputs
+        pass
+
+
+print("Output:")
+print(f"{len(valid_inputs) / trials * 100}% of the trials were valid inputs.")
+```
+
+The book also explains how we can use the `Coverage` module to measure how the code coverage behaves in response to fuzzed inputs.
 
 #### Summary
 
+Initially, I thought this chapter was going to be about fuzzing our test cases, which is what we had read about a few weeks earlier. I was pleased to see that this was another tidbit of information useful for our endeavors while working on `chasten`. While I don't think I plan to create a mutation-based fuzzing implementation from scratch, I *do* plan to keep this in mind when adding test cases to my feature branches. I am excited that I now know how to use this idea. Interestingly enough, my first feature branch on `chasten` featured a fuzzing-based test on a URL parser. What are the chances?
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** Keeping this fuzzing strategy in mind while working on our test cases, as we always should be doing anyways.
+* **Stop doing:** N/A
+* **Keep doing:** Keep chipping away at making test cases in our feature branches.
 
 # Week 8
 
