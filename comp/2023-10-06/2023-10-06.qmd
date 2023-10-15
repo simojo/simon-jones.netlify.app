@@ -60,7 +60,7 @@ to interpret the relative position of obstacles; however, interpreting
 reliable and fast 3D spatial data via a camera, called optical flow,
 requires extensive training and large amounts of data. Although recent
 work has enabled a racing quadcopter to outperform professional pilots,
-boasting a speed of $22\\frac{\\text{m}}{\\text{s}}$ using only an
+boasting a speed of $22\frac{\text{m}}{\text{s}}$ using only an
 optical flow model, training a model from ranging sensor data is much
 simpler compared to that of system using a camera for image-based
 ranging, which is important when considering the feasibility of this
@@ -217,7 +217,7 @@ of the following:
     exhibits a slow response time. (Cirtoaje 2021)
 
 3.  Finding a coherent infrared light source
-    $(\\lambda \\approx 800-900\\rm{nm})$.
+    $(\lambda \approx 800-900\rm{nm})$.
 
 ## CONCLUSION
 
