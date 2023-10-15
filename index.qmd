@@ -316,7 +316,7 @@ from urllib.parse import urlparse
 
 
 def delete_random_character(s: str) -> str:
-    if s = "":
+    if s == "":
         return s
     pos = random.randint(0, len(s) - 1)
     return s[:pos] + s[pos + 1:]
@@ -359,6 +359,9 @@ def multi_mutate(s: str, n: int) -> str:
     for i in range(n):
         res = mutate(res)
     return res
+
+print("Example:")
+print(f"input: 'Testing 123!!', output: {multi_mutate('Testing 123!!', 10)}")
 ```
 
 Now we have everything we need to test a basic function with our mutation-based fuzzing strategy we just created! As done in the Fuzzing Book, we'll test the function `http_program(url: str) -> bool`:
@@ -378,8 +381,8 @@ def http_program(url: str) -> bool:
 # test `http_program()`
 seed_input = "http://www.google.com/search?q=fuzzing"
 valid_inputs = set()
-trails = 20
-n_mutations = 100
+trials = 20
+n_mutations = 15
 
 for i in range(trials):
     input = multi_mutate(seed_input, n_mutations)
@@ -388,9 +391,11 @@ for i in range(trials):
         # input is valid, we can add it
         # to the set of valid inputs
         valid_inputs.add(input)
+        print(f"'{input}' is valid!")
     except ValueError:
         # input is invalid, do not add it
         # to the set of valid inputs
+        print(f"'{input}' is invalid!")
         pass
 
 
