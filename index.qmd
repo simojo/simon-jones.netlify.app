@@ -471,9 +471,13 @@ We represent many other things using this syntax, including arithmetic expressio
 
 ```{python}
 import random
-from typing import Dict, List, str, int, bool
+import re
+from typing import Dict, List
 
 Grammar = Dict[str, List[str]]
+
+def nonterminals(expansion):
+    return re.compile(r'(<[^<> ]*>)').findall(expansion)
 
 class ExpansionError(Exception):
     pass
@@ -555,7 +559,7 @@ URL_GRAMMAR: Grammar = {
 Now we can use it to see that the generated inputs are all valid URLs:
 
 ```{python}
-for i in range(10);
+for i in range(10):
     print(simple_grammar_fuzzer(grammar=URL_GRAMMAR, max_nonterminals=10))
 ```
 
