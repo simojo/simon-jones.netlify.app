@@ -421,21 +421,155 @@ Initially, I thought this chapter was going to be about fuzzing our test cases, 
 
 #### Summary
 
+This chapter gives insight regarding how to effectively manage a team, whether or not the choice to be a leader was intentional. As stated in the book, this can be done by using the principles of "humility, respect, and trust."
+
+> Above all, resist the urge to manage.
+
+This chapter urges the reader, when put in a leadership position, to be a 'servant leader,' which is a position of authority to promote the well-being and productivity of the team. Thus, we have the saying: *Above all, resist the urge to manage.*
+
+We hear a story about an employee named Jerry, who worked with the author shortly after leaving his position under an antagonistic manager. The author explains how Jerry was fearful that leaving fifteen minutes early for a personal commitment was going to get him into trouble, but the author, as his manager, assured him: "Look, as long as you get your job done, I don't care what time you leave the office." Treating one's team as adults rather than a baby in need of babysitting is a great way to have a team powered by positive pressure.
+
+This chapter gives us a few actions to avoid as a manager:
+
+* Hiring pushovers: Hiring malleable individuals is a way to gratify your own ego rather than hiring people who will think critically.
+* Hiring low performers: Sometimes individuals' skills *do not* meet the standard of the team; it is important to identify low performers and help them as soon as possible or simply avoid hiring them so they do not weigh down the rest of the team.
+* Ignoring human issues: A manager who overlooks the humanity of their team members will soon have a disjoint, agitated team.
+* Being everyone's friend: Trying to forge friendships as a manager can lead to uncomfortable dichotomies down the road. It interferes with your role in being their leader.
+* Compromising the hiring bar: Taking the due time to consider who you are hiring is a long-term investment worth devoting your cost to.
+* Treat your team like children: This forms an antagonistic relationship that makes your team's commitment weak.
+
+To counteract these antipatterns, a team leader is supposed to support their team by staying calm, being a respectable figure in how they act, being a teacher and mentor, having clarity in goal-setting and in their speech, paying attention to their team's emotional well-being, and persistently trying to motivate them. Although no team leader can be perfect, they can keep these 'pillars' of managing in mind in order to try to provider their employees with the best experience possible.
+
+In the end, it's important to remember that people are like plants. They need to grow next to sources of nutrients and motivation to grow. One of Jesus' parables in the Bible goes as follows:
+
+> 3 ...A farmer went out to sow his seed. 4 As he was scattering the seed, some fell along the path, and the birds came and ate it up. 5 Some fell on rocky places, where it did not have much soil. It sprang up quickly, because the soil was shallow. 6 But when the sun came up, the plants were scorched, and they withered because they had no root. 7 Other seed fell among thorns, which grew up and choked the plants, so that they did not bear grain. 8 Still other seed fell on good soil. It came up, grew and produced a crop, some multiplying thirty, some sixty, some a hundred times.” (Mark 4:3-8, NIV)
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+Although none of us in the development team for `chasten` are truly considered 'managers,' these are good principles to live by in how we approach people that are new to a group of people that we are in, and it is a good principle to apply to topics such as parenting. I have been impacted by a supervisor with traits similar to those mentioned in this chapter, and I have experienced the power of the 'positive pressure' that this chapter mentions.
+
+* **Start doing:** Trusting each other, even if we make mistakes.
+* **Stop doing:** N/A
+* **Keep doing:** Delegating tasks among ourselves, making sure everyone is getting the right amount of work fitted for their ability.
 
 ## FB6: Fuzzing with Grammars
 
 #### Summary
 
+A grammar defines a set of rules around how something like a parser can validate a grouping of characters. Natural language, for example, follows a grammar that allows different human beings to speak to each other. When you tell me "Violeta runs to..." I expect to hear an object that *terminates* the prepositional phrase started by the word "to." Programming languages have a grammar that allows them to compile a file into machine code.
+
+Here is an example of a basic grammar for a word, similar to how most programming languages would parse a variable identifier:
+
+```
+<start> ::= <word>
+<word> ::= <word_char> | <word_char><word>
+<word_char> ::= 
+a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | _
+```
+
+We represent many other things using this syntax, including arithmetic expressions. Let's build a simple grammar-based fuzzer that takes a grammar as a `Dict` input.
+
+```{python}
+import random
+
+class ExpansionError(Exception):
+    pass
+
+def simple_grammar_fuzzer(grammar: Grammar, 
+                          start_symbol: str = START_SYMBOL,
+                          max_nonterminals: int = 10,
+                          max_expansion_trials: int = 100,
+                          log: bool = False) -> str:
+    """Produce a string from `grammar`.
+       `start_symbol`: use a start symbol other than `<start>` (default).
+       `max_nonterminals`: the maximum number of nonterminals 
+         still left for expansion
+       `max_expansion_trials`: maximum # of attempts to produce a string
+       `log`: print expansion progress if True"""
+
+    term = start_symbol
+    expansion_trials = 0
+
+    while len(nonterminals(term)) > 0:
+        symbol_to_expand = random.choice(nonterminals(term))
+        expansions = grammar[symbol_to_expand]
+        expansion = random.choice(expansions)
+        # In later chapters, we allow expansions to be tuples,
+        # with the expansion being the first element
+        if isinstance(expansion, tuple):
+            expansion = expansion[0]
+
+        new_term = term.replace(symbol_to_expand, expansion, 1)
+
+        if len(nonterminals(new_term)) < max_nonterminals:
+            term = new_term
+            if log:
+                print("%-40s" % (symbol_to_expand + " -> " + expansion), term)
+            expansion_trials = 0
+        else:
+            expansion_trials += 1
+            if expansion_trials >= max_expansion_trials:
+                raise ExpansionError("Cannot expand " + repr(term))
+
+    return term
+```
+
+Now we can fuzz intelligently with a grammar. This chapter provides the grammar for URL, which we'll use:
+
+```{python}
+URL_GRAMMAR: Grammar = {
+    "<start>":
+        ["<url>"],
+    "<url>":
+        ["<scheme>://<authority><path><query>"],
+    "<scheme>":
+        ["http", "https", "ftp", "ftps"],
+    "<authority>":
+        ["<host>", "<host>:<port>", "<userinfo>@<host>", "<userinfo>@<host>:<port>"],
+    "<host>":  # Just a few
+        ["cispa.saarland", "www.google.com", "fuzzingbook.com"],
+    "<port>":
+        ["80", "8080", "<nat>"],
+    "<nat>":
+        ["<digit>", "<digit><digit>"],
+    "<digit>":
+        ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "<userinfo>":  # Just one
+        ["user:password"],
+    "<path>":  # Just a few
+        ["", "/", "/<id>"],
+    "<id>":  # Just a few
+        ["abc", "def", "x<digit><digit>"],
+    "<query>":
+        ["", "?<params>"],
+    "<params>":
+        ["<param>", "<param>&<params>"],
+    "<param>":  # Just a few
+        ["<id>=<id>", "<id>=<nat>"],
+}
+```
+
+Now we can use it to see that the generated inputs are all valid URLs:
+
+```{python}
+for i in range(10);
+    print(simple_grammar_fuzzer(grammar=URL_GRAMMAR, max_nonterminals=10))
+```
+
+The value `max_nonterminals` gives the fuzzer an upper limit on how many symbols it can randomly generate until ending the expression.
+
+Grammars can be used as a kind of way to seed an input before mutating it. This way, instead of having a static seed for mutation, your seed can be randomized as well. Just when you thought fuzzing could not get any deeper, right?
+
+Grammars can be a powerful tool to allow us to create syntactically valid inputs for any file type or spec.
+
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This chapter bundled up many loose ends to create a powerful point: we should consider using this strategy! This would allow us to better parse things like XPath expressions, YAML files, and many more things. We could really extend this to be everywhere in our test suite. Although we could spend all day writing more test cases, we will have to limit ourselves to implement only a few cases of this grammar-based fuzzing, however. I would like to see us use it for XPath expressions, if anything. I researched, and I was unable to find any examples of fuzzing that supplies syntactically-valid XPath expressions, so maybe this is our responsibility to create.
+
+* **Start doing:** Considering using grammar-based fuzzing for XPath expressions.
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 9
 
