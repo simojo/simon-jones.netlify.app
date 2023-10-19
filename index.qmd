@@ -471,12 +471,15 @@ We represent many other things using this syntax, including arithmetic expressio
 
 ```{python}
 import random
+from typing import Dict, List, str, int, bool
+
+Grammar = Dict[str, List[str]]
 
 class ExpansionError(Exception):
     pass
 
 def simple_grammar_fuzzer(grammar: Grammar, 
-                          start_symbol: str = START_SYMBOL,
+                          start_symbol: str = "<start>",
                           max_nonterminals: int = 10,
                           max_expansion_trials: int = 100,
                           log: bool = False) -> str:
@@ -559,6 +562,15 @@ for i in range(10);
 The value `max_nonterminals` gives the fuzzer an upper limit on how many symbols it can randomly generate until ending the expression.
 
 Grammars can be used as a kind of way to seed an input before mutating it. This way, instead of having a static seed for mutation, your seed can be randomized as well. Just when you thought fuzzing could not get any deeper, right?
+
+```{python}
+n_grammar_seeds = 10
+for i in range(n_grammar_seeds):
+    original = simple_grammar_fuzzer(grammar=URL_GRAMMAR, max_nonterminals=10)
+    mutated = multi_mutate(simple_grammar_fuzzer(grammar=URL_GRAMMAR, max_nonterminals=10), 5)
+    print(f"original: {original}")
+    print(f"mutated: {mutated}")
+```
 
 Grammars can be a powerful tool to allow us to create syntactically valid inputs for any file type or spec.
 
