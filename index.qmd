@@ -593,11 +593,59 @@ This chapter bundled up many loose ends to create a powerful point: we should co
 
 #### Summary
 
+This chapter in the Software Engineering Book at Google, 
+[Leading at Scale](https://abseil.io/resources/swe-book/html/ch06.html),
+discusses how to be a leader of an ever-growing team in an ever-growing
+organization.
+
+> If writing code is analogous to chopping down trees, your job as a leader is
+to “see the forest through the trees” and find a workable path through that
+forest, directing engineers toward the important trees.
+
+This process has three main parts: identifying the blinders, identifying the key
+trade-offs, and iterating a solution.
+
+* Identifying the blinders: Many individuals keeping their nose to the
+  grindstone will be unable to possess a bigger picture view of a situation. It
+  is the manager's role to help and inform them in this regard.
+
+* Identifying the key trade-offs: Mangers have keen insight into the
+  consequences of making a certain decision. They are responsible for
+  understanding how compromises should be approached, and they must be willing
+  to understand trade-offs.
+
+* Iterating a solution: Continuously deciding a solution is a healthy trait to
+  have as a manager.
+
+Although managers should be attentive and present in their team's lives, they
+should also "always be leaving," meaning that they should be comfortable with
+letting go of the reins for intermittent time periods in order to grow their
+team's independence and demonstrate trust. If a manager poses as a single point
+of failure for a team, this will bring to surface that weakness *instantly*.
+
+This chapter mentions that it is important to scale *oneself* through the
+process of scaling rather than focusing on scaling our team all of the time. A
+manager must focus on scaling themself. This may look like scaling their skills:
+energy, analytical skills, or attention span.
+
+A manager must have the capacity to strongly lead and support a team of
+individual star employees while also setting themself up for an independent
+team. This will help the mental health of both team and manager.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+I feel that, although our class may have started with developing individuals as
+single points of failure, we are not in a stable position where the `chasten`
+team consists of numerous pockets of ability. To learn a new part of the code
+base, one only needs to move over to a different pocket of the team. Each pocket
+is open to new tasks as well.
+
+* **Start doing:** N/A
+* **Stop doing:** N/A
+* **Keep doing:** Keep upholding our integrity as individual workers while
+  focusing on leaving completed work in an approachable, declarative state. This
+  way, new team members will be able to get started working with `chasten` at a
+  fast rate.
 
 ## FB7: Efficient Grammar Fuzzing
 
