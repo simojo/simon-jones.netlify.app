@@ -651,11 +651,25 @@ is open to new tasks as well.
 
 #### Summary
 
+This chapter in the fuzzing book, [Efficient Grammar Fuzzing](https://www.fuzzingbook.org/html/GrammarFuzzer.html), addresses the problems of the previously described grammar-based fuzzing. The most notable of these problems is that the grammar-based fuzzer reaches a problem when an expression surrounded by parenthesis is given. If it needs to end a fuzzed expression, but has run out of space, it will infinitely add parentheses, which do not 'cost' it any extra terms, because parentheses are used to wrap terms. We soon learn that the grammar-based fuzzer grows with complexity of $O(n^2)$, because, for each added character (each time $n$ increases), the algorithm scans through the string an extra time.
+
+We can use what is known as a derivation tree by using three strategies to expand it:
+
+* **Max cost expansion**: This expands the derivation tree using elements of a maximum cost until a minimum number of *nonterminals* are met.
+* **Random expansion**: This expands the tree randomly until a maximum number of *nonterminals* are met.
+* **Min cost expansion**: This expands the derivation tree with the minimum cost possible.
+
+This method allows us to generate smaller, more coherent inputs at a faster speed.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This chapter helped to grow my understanding of grammar-based fuzzing. Before, I would not have known that there were more ways to perform grammar-based fuzzing other than by including a gramma and 'shipping' it. Now, I understand that there are many caveats to grammar-based fuzzing, such as efficiency, infinite loops, and bugs that can occur by not paying careful attention to the grammar rules set in place.
+
+I do not believe that we should apply this, because the topic seems to be advanced, but it is a good principle to keep in mind regarding our future endeavors.
+
+* **Start doing:** N/A
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 10
 
