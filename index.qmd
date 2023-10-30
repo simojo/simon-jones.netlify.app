@@ -677,13 +677,50 @@ I do not believe that we should apply this, because the topic seems to be advanc
 
 #### Summary
 
-[This chapter](https://abseil.io/resources/swe-book/html/ch08.html) in the Software Engineering Book at Google gives us solid reasoning for why a team ought to invest in standardizing the style in which they write documentation and code. FIXME
+[This chapter](https://abseil.io/resources/swe-book/html/ch08.html) in the Software Engineering Book at Google gives us solid reasoning for why a team ought to invest in standardizing the style in which they write documentation and code. Before we dive in, a fun fact about Google is that *they don't allow the use of exceptions in C++ programming*. Although the language feature is used widely outside of Google, their priority is to keep their codebase sustainable (a keyword for this section), and the use of exceptions is a block to that goal.
+
+Because Google's codebase has more than two billion lines of code and caters to roughly sixty thousand engineers, they have good reasoning to enforce coding styles. Thousands of submissions are made every day to their collective codebase, and having rules to standardize that is obviously a must in order to survive in the long run.
+
+> We aim for local reasoning, where the goal is clear understanding of what’s happening at the call site without needing to find and reference other code, including the function’s implementation.
+
+Google's pursuit of *local reasoning* is what marks them with their success. Anyone jumping into a new line of code can infer things such as *ownership*, *type*, and *side effects* associated with a function call without needing to embark on a wild goose chase.
+
+Regarding code finessing, Google ostracises those who participate in such activities. Code golfers and clever developers alike will be shoved down a stove pipe without a second thought because:
+
+> We need all of our engineers able to operate in the codebase, not just the experts.
+
+A codebase that glorifies the egos of the programmers serves no purpose for *nooglers* or anyone lacking an extensive background in the language. Google identified this quite some time ago, and they have prioritized readability.
+
+```{python}
+def is_finessing_the_codebase(employee):
+    if employee == "prideful":
+        print(f"[INFO] Employee discovered to be actively finessing the codebase.")
+        return True
+    else:
+        print(f"[INFO] Employee is not guilty of finessing the codebase.")
+        return False
+
+def shove_down_stove_pipe(employee):
+    print(f"[INFO] Employee shoved down stove pipe with success.")
+
+employee = "prideful"
+
+if is_finessing_the_codebase(employee):
+   shove_down_stove_pipe(employee)
+```
+
+
+##### Changing the Rules
+
+Although Google has taken to harping on certain rules, they are not completely opposed to modifying them if need be. There have been many instances in their past in which a decision was made to change the rules for styling. It does, however, require an extensive process of review and agreement before enacting.
 
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This chapter helps me to see the importance of style enforcement and why its emphasized. In my personal projects, I have been known to throw this out the window, and commit to a rather unreadable style, although highly functional (which is to say that I rely on function names to make my code obvious). In a codebase like what the team for `chasten` is working on, it is obviously a priority to make the code accessible and standardized between different contributors; however, I believe that letting these checks break our build may be a bit overkill, considering the current scale of `chasten`. Because styling does not affect the functionality of the code, I do not believe that it should be factored into allowing it to be published, although it is important. It would be better to investigate if there is a non-breaking build strategy that simply shows us if the styling is intact for a given branch of the program, rather than interpreting broken formatting as dysfunctional code.
+
+* **Start doing:** Testing the waters to see if we can move non-functional checks, such as style checks, outside of the scope of breaking our build, meaning that we will still refer to them, but not in a sense of allowing or disallowing a branch to be merged.
+* **Stop doing:** Writing bad code, obviously.
+* **Keep doing:** Writing good code, obviously.
 
 ## FB8: Parsing Inputs
 
