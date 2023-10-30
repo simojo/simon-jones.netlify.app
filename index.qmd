@@ -677,6 +677,8 @@ I do not believe that we should apply this, because the topic seems to be advanc
 
 #### Summary
 
+[This chapter](https://abseil.io/resources/swe-book/html/ch08.html) in the Software Engineering Book at Google gives us solid reasoning for why a team ought to invest in standardizing the style in which they write documentation and code. FIXME
+
 #### Action Items & Reflection
 
 * **Start doing:**
