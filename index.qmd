@@ -726,11 +726,17 @@ This chapter helps me to see the importance of style enforcement and why its emp
 
 #### Summary
 
+[This chapter](https://www.fuzzingbook.org/html/Parser.html) in The Fuzzing Book guides us on how to use a grammar to enhance the quality of our parsing. Simple parsers will rely on a set of regular expressions rather than a flexible, dynamic grammar. This chapter demonstrates to us the value of using a *Parsing Expression Grammar* parser (PEG) and *Earley* parsers to perform parsing with grammars. These powerful parsers can then be used to validate our fuzzing, which will filter out fuzzed inputs that are syntactically valid.
+
+An interesting application of this is something called a *Packrat Parser*. Similarly to *memoization*, when we store the inputs to a function to reuse the outputs for faster future computation, we can break up smaller, more trivial solutions to previously encountered parsed inputs to more quickly validate a new input that consists of those smaller parts.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+I personally felt that the author intellectually spewed without any thoughts of the significance of what they wrote in this chapter. For that reason, I had a difficult time finding the meaning in this chapter. I understand how using different kinds of grammars can empower us to create highly functional parsers that can then be used in our fuzzing approach, but I felt that this article was a stretch. The direct applicability of this concept seems sparse as well; I see no plans of us ever using this in the development of `chasten`, but I could see how others in the class may choose to use it for their personal or professional projects.
+
+* **Start doing:** N/A
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 11
 
