@@ -36,7 +36,7 @@ In the preface of *Software Engineering at Google*, the section [Programming Ove
 The chapter **Introduction to Software Testing** in the Fuzzing Book walks us through the most fundamental idea of what software testing looks like, starting from the most basic example of a square root finder that finds only real roots $(f : \mathbb{R}^+ \to \mathbb{R}^+)$. We are presented with the idea of proving the said function's correctness by a single example input; however we find the more general approach of verifying the function's result thanks to the fact that $\sqrt{x}\cdot\sqrt{x}=x$ for all $x \in \mathbb{R}$. We can do this for any number, say 2, to demonstrate:
 
 ```{python}
-* **def my_sqrt(x)**:
+def my_sqrt(x):
     """Computes the square root of x, using the Newton–Raphson method"""
     approx = None
     guess = x / 2
@@ -787,22 +787,30 @@ Okay, we've established that code review is a "good" thing. Before mounting onto
 too high of a horse with that idea, we need to establish the best practices for
 participating in code review.
 
-* **Be Polite and Professional**:
+* **Be Polite and Professional**: A reviewer should never try to point out the
+  author's faults. They should strive to build the author up.
 * **Write Small Changes**: Keeping the changes relatively small in order to reduce
   the complication of the review process. For major features, doing these
   reviews into a review branch synced with master is the standard. (take notes,
   `chasten` team!)
-* **Write Good Change Descriptions**:
-* **Keep Reviewers to a Minimum**:
-* **Automate Where Possible**:
+* **Write Good Change Descriptions**: This requires writing detailed commit
+  messages and summaries that will be helpful in supporting the reviewer's
+  understanding of the changes.
+* **Keep Reviewers to a Minimum**: With the majority of code reviews at Google
+  involving only one reviewer and one author, this helps both parties to feel
+  the need to be concise, and it reduces the lead time for review.
+* **Automate Where Possible**: Reduce the responsibility put on the reviewer by
+  automating processes that would tailor the reviewing process, such as
+  automated builds and automated testing.
 
 #### Summary
 
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** Chomping at the bit to review each other's PRs
+* **Stop doing:** Asking more than 3 people to review a PR.
+* **Keep doing:** Going through the motions of our review process and using our
+  PR template.
 
 ## FB9: Reducing Failure-Inducing Inputs
 
