@@ -96,7 +96,7 @@ deflection. These systems rely on extremely precise manufacturing
 processes, which are expensive and time consuming.
 
 <figure>
-<img src="images/liquidCrystalBeamSteering.png" id="fig:lcbeamsteering"
+<img src="2023-10-06-images/liquidCrystalBeamSteering.png" id="fig:lcbeamsteering"
 style="width:30.0%"
 alt="Three layers of nematic liquid crystals used to deflect a light source.(Zhang et al. 2023)" />
 <figcaption aria-hidden="true">Three layers of nematic liquid crystals
@@ -105,7 +105,7 @@ data-cites="zhang2023">(Zhang et al. 2023)</span></figcaption>
 </figure>
 
 <figure>
-<img src="images/lcelectricfield.png" id="fig:lcelectricfield"
+<img src="2023-10-06-images/lcelectricfield.png" id="fig:lcelectricfield"
 style="width:70.0%"
 alt="Behavior of nematic liquid crystal cell under applied voltage. Inner molecules align strongest with the electric field, while they align more closely to the orientation of the molecules at the surface as they tend to the surface. (Cirtoaje 2021)" />
 <figcaption aria-hidden="true">Behavior of nematic liquid crystal cell
@@ -145,7 +145,7 @@ collection of software and methodologies that generalize robotics
 development. (Stanford Artificial Intelligence Laboratory et al., n.d.)
 
 <figure>
-<img src="images/clover.png" id="fig:clover" style="width:40.0%"
+<img src="2023-10-06-images/clover.png" id="fig:clover" style="width:40.0%"
 alt="COEX Clover quadcopter. (“COEX Clover,” n.d.)" />
 <figcaption aria-hidden="true">COEX Clover quadcopter. <span
 class="citation" data-cites="clover">(<span>“COEX Clover,”</span>

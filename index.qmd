@@ -36,7 +36,7 @@ In the preface of *Software Engineering at Google*, the section [Programming Ove
 The chapter **Introduction to Software Testing** in the Fuzzing Book walks us through the most fundamental idea of what software testing looks like, starting from the most basic example of a square root finder that finds only real roots $(f : \mathbb{R}^+ \to \mathbb{R}^+)$. We are presented with the idea of proving the said function's correctness by a single example input; however we find the more general approach of verifying the function's result thanks to the fact that $\sqrt{x}\cdot\sqrt{x}=x$ for all $x \in \mathbb{R}$. We can do this for any number, say 2, to demonstrate:
 
 ```{python}
-def my_sqrt(x):
+* **def my_sqrt(x)**:
     """Computes the square root of x, using the Newton–Raphson method"""
     approx = None
     guess = x / 2
@@ -745,6 +745,56 @@ I personally felt that the author intellectually spewed without any thoughts of 
 # Week 12
 
 ## SE9: Code Review
+
+This chapter in the Software Engineering Book at Google, [Code
+Review](https://abseil.io/resources/swe-book/html/ch09.html), discusses the
+benefits of and methods for participating in code review.
+
+Because code is a liability (meaning that newly written code poses a threat to progress by virtue of it being new and unreviewed), one must try to be aware of *all* of the functional bits of code that exist in a codebase.
+
+When new code is created, the SWE must take steps to put their work through a
+review process. The review process passes through three types of approval, which
+can often happen by the same reviewer:
+
+* Approval of the code's correctness and comprehension as to its functionality
+* Approval from one of the code owners that the code is appropriate for this
+  codebase
+* Approval from a master of writing code in that language with readability
+
+While some companies overlook the importance of code review and prioritize
+development speed, Google enforces code review for even the smallest
+repositories, in order to get everyone in the *rhythm of review*.
+
+Additionally, code review promote authorship that strives for readability.
+
+> A code review is often the first test of whether a given change is
+understandable to a broader audience.
+
+As we have talked about before, *code is read far more times than it is
+written*. Reviewing this code not only fosters community among members of a
+programming team, but it also validates each team member's place in the team.
+Imposter syndrome is a very real thing. Reviewing code also promotes knowledge
+sharing, which is the steady exchange of knowledge among members of a team.
+
+Just to review, code review promotes:
+
+* **Community**: It welcomes the spirit of team work.
+* **Validation**: It provides a way for performing team members to get validation.
+* **Knowledge sharing**: It aids in the steady exchange of information between team
+  members.
+
+Okay, we've established that code review is a "good" thing. Before mounting onto
+too high of a horse with that idea, we need to establish the best practices for
+participating in code review.
+
+* **Be Polite and Professional**:
+* **Write Small Changes**: Keeping the changes relatively small in order to reduce
+  the complication of the review process. For major features, doing these
+  reviews into a review branch synced with master is the standard. (take notes,
+  `chasten` team!)
+* **Write Good Change Descriptions**:
+* **Keep Reviewers to a Minimum**:
+* **Automate Where Possible**:
 
 #### Summary
 
