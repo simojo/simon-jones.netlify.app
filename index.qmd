@@ -816,11 +816,40 @@ participating in code review.
 
 #### Summary
 
+[This chapter](https://www.fuzzingbook.org/html/Reducer.html) in the fuzzing
+book introduces us to the idea of *Delta Debugging* for pinpointing faulty areas
+of code. By procedurally trimming or removing parts of an input, we can
+determine the exact point at which an input fails and then create a conjecture
+concerning why the said part of the input failed.
+
+One example of delta debugging is by systematically dividing a string input to a
+function according to an algorithm that resembles binary search. We start by
+chunking the string in half and running each half through the test function. If
+only one side fails, we keep repeating this process on the half that broke the
+function in order to find the minimal failing input. From such a small input, we
+can then determine exactly why our code fails at this part.
+
+Another, more complex, example is to apply a grammar to intelligently split an
+input up. By this method, you are no longer splitting the input string up by
+random characters, you are splitting it up by tokens determined from the
+grammar.
+
+This method of debugging is extensible to a wide variety of different inputs,
+although more effective on some than others.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+The `chasten` and `cellveyor` teams will need to keep the principles of delta
+debugging in mind when coming across issues. We will most certainly have issues
+in our programs, and it will be important to have this method of debugging at
+our disposal. While it may not make the most sense to devote too much time to
+debugging by this method (mostly because of the smaller scope of our project),
+we can still benefit from knowing this method of debugging.
+
+* **Start doing:** Keeping in mind the concepts of delta debugging in order to
+  better apply its principles.
+* **Stop doing:** N/A
+* **Keep doing:** Having our minds open to new debugging concepts.
 
 # Week 13
 
