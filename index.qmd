@@ -908,11 +908,43 @@ people.
 
 #### Summary
 
+[This chapter](https://www.debuggingbook.org/html/Intro_Debugging.html) in the
+debugging book walks us through how to effectively debug code, at the
+introductory level. We are first told how, when encountering a bug, we can
+easily take reactive steps that do not effectively pinpoint the issue. Zeller
+refers to these as steps from the "devil's guide."
+
+Zeller provides three good patterns that apply to debugging in general:
+
+1. Understand the code
+2. Fix the problem, not the symptom
+3. Proceed systematically
+
+When defects are not pinpointed, they propagate into failure. Often, a software
+engineering will only look at the failure rather than piecing apart the steps to
+locate the defect. Zeller encourages the reader to apply the scientific method,
+in which one conjures and tests a hypothesis.
+
+Through rigorous, repeated testing, one can test their hypothesis to assert its
+validity. After this point, the developer may be able to pinpoint the issue at
+hand and take steps to fix it. As an alternative to many of these technical
+steps, Zeller promotes the idea of "rubber ducking," which is when you explain
+the problem to a colleague. This trick will often surprise the individual trying
+to debug their program, because, more often than not, the nonsensical bit will
+jump out while they are trying to explain their issue!
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This chapter was not extremely technical, with which I have no issue. I felt
+that many of the points in this article were trivial, however. Zeller could have
+omitted them by the fact that they are mostly common knowledge, such as the idea
+of forming a hypothesis. I appreciated the thorough introduction to debugging,
+however. This may prove to be more insightful than many of the topics from the
+fuzzing book, simply because of the pragmatism seen here.
+
+* **Start doing:** Being willing to form hypotheses when our code fails.
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 14
 
