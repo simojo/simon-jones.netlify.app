@@ -855,13 +855,54 @@ we can still benefit from knowing this method of debugging.
 
 ## SE10: Documentation
 
+[This chapter](https://abseil.io/resources/swe-book/html/ch10.html) in the
+Software Engineering Book at Google tells us about the value of
+**documentation**. The benefits of documentation are not immediately felt, which
+is what makes writing it so difficult for the begrudging developer. In the
+effort of "optimizing for the reader," there are many important principles to
+take into account.
+
+* Documentation is like code: Documentation should be managed and edited just
+  like code is. This means that documentation is subject to issues, pull
+  request, feature requests, and the most important of all, having bugs.
+* Know your audience: It's one thing to write for yourself, but one must
+  consider the audience that will be reading the documentation that they have
+  written. This includes writing for *seekers*, people who know exactly what
+  they want, and *stumblers*, people who are not quite sure where to look. To
+  cater to both means having all levels of technical depth, from beginner to
+  expert.
+* Acknowledge that there are different types of documentation: Depending on the
+  documentation type, the author will need to distinguish what kind of
+  documentation type they are creating. This will determine how in-depth they go
+  with the information, and it will determine how much effort they put in to
+  making it accessible.
+* Have someone review your documentation: Similarly to how code is reviewed, it
+  is worth having someone review your documentation in order to verify that it
+  is technically correct, legible, and consistent.
+* Deprecate documents, when necessary: It is important to know when to deprecate
+  documents. This may involve pointing the reader to a new document, or it may
+  involve completely writing the document off as obsolete.
+
+Above all, reminding oneself that documentation is crucial to scaling a team or
+company will encourage good authorship. Documentation cannot be written alone,
+and a team must work together to write excellent documents to outlive their own
+goals and time in that team.
+
 #### Summary
+
+This chapter struck me as very important information. I have completely changed
+my opinions about documentation after being in this class. I have even found
+myself writing documentation in the code that I work on outside of class. I
+think that between the `chasten` and `cellveyor` teams, we are doing an
+excellent job of documenting our technical work. The only part where where we
+fall short is in the creation of our wiki. That mostly falls under one or two
+people.
 
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+* **Start doing:** Investing time into beefing up our wiki.
+* **Stop doing:** N/A
+* **Keep doing:** Writing well-documented code.
 
 ## DB1: Introduction to Debugging
 
