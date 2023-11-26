@@ -1058,11 +1058,42 @@ allows me to move forward without looking back!
 
 #### Summary
 
+[This chapter](https://www.debuggingbook.org/html/Tracer.html) of the debugging
+book shows us how we can trace our program and flag specific events for the
+purpose of debugging. By using `sys.settrace()` in tandem with the
+`StackInspector` class, we can track events that happen in code without having
+to write out numerous calls to `print`. The author defines a class that prints
+out each executed line of a program along with the entire scope. This prints out
+all of the variables and their values for each step.
+
+An extension of this is to trace the changes to a variable. This is done by
+attaching onto each event to determine which of the variables in scope have
+changed in value. This can be useful for tracing unintentional changes or for
+tracing when a variable was changed to an undesired value.
+
+In addition to dynamic tracers used for tracing the execution of dynamically
+typed languages, we can also employ what are called *static tracers*. These can
+be used for tracing the execution of compiled languages such as C. Additionally,
+a developer can take advantage of the x86 architecture's feature of hardware
+breakpoints, which are ways to pause the execution of a program and inspect the
+memory.
+
+Each language has a way to debug its code with some form of metaprogramming.
+These approaches can relieve the developer of having to modify their code and
+allows them to trace back to better pinpoint an issue.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+I feel that the test suite of `chasten` would benefit from an improved way to
+trace. I have found myself scratching my head when the test suite breaks without
+providing a way to trace back to where a certain test broke. If we took the
+extra hours to implement a way to trace where a program failed, we could enhance
+our test suite *even more*.
+
+* **Start doing:** Employing tracing methods of debugging as a part of our test
+  suite.
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 15
 
