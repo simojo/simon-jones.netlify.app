@@ -1101,21 +1101,126 @@ our test suite *even more*.
 
 #### Summary
 
+> After preventing bugs, the most important purpose of a test is to improve
+> engineers’ productivity.
+
+[This chapter](https://abseil.io/resources/swe-book/html/ch12.html) in the
+Software Engineering Book at Google discusses what unit testing is. Unit tests
+are small tests that test a very specific functionality in a larger program. As
+opposed to larger tests with a wide scope, unit tests demonstrate the smallest
+"unit" of functionality, hence the name "unit test."
+
+An antipattern while creating unit tests is to create *brittle tests*. Brittle
+tests are tests that can be easily broken by a few minor changes. These kinds of
+tests rely on multiple hard-coded attributes of a program, such as a data type
+or namespace.
+
+This chapter provides an example of a developer trying to test a
+public API. While the developer may be tempted to reference the API's
+functionality by directly interfacing its private members, the better option
+would be to test it from the same perspective that the end user would. The book
+states that these kinds of tests "form explicit contracts: if such a test
+breaks, it implies that an existing user of the system will also be broken."
+
+One other example of a brittle test is a test that tests the interactions of a
+functionality rather than the state it produces. These kinds of tests measure
+how a system takes steps to complete an action instead of comparing the final
+state of the application after it performs an operation. Once again, this is the
+difference between tests that test the behind-the-scenes instead of testing the
+more public facing side of an application. This chapter makes an argument for
+testing a program in a method similar to how the user would see it.
+
+The most important part of writing effective unit tests is being *clear* and
+*concise*. The clarity required for writing detailed tests pays off when other
+developers read over your code. The conciseness required for completing tests
+pays off when a single test fails and one can immediately tell what has gone
+wrong. Tests that are lacking in these two areas will be improperly named, test
+more than one part of functionality, or not be immediately obvious in what they
+are testing. These kinds of tests delay development and pose as a liability.
+
+Unit tests are one of the most powerful tools that are at a software engineer's
+disposal. Careful use of unit tests will yield incredible velocity with which a
+team can develop.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This chapter goes into great depth on the different semantics that exist in how
+tests are written. I felt confused on numerous accounts during this chapter
+because of how specific the differences were between the kinds of tests. I wish
+that I could resonate with this chapter more, because I believe that it could be
+more helpful. I keep thinking of future endeavors I will engage in, most likely
+in the context of scientific computing. I hope that I can incorporate these
+kinds of software engineering practices into my workflow.
+
+* **Start doing:** Keeping in mind *how* we are writing our tests and if the
+  test case could be broken up into smaller bits or combined with similar logic.
+* **Stop doing:** Writing super large integration tests that slow down our test
+  suite.
+* **Keep doing:** Writing tests whenever we ship code.
 
 ## DB3: Assertions
 
 #### Summary
 
+[This chapter](https://www.debuggingbook.org/html/Assertions.html) in the
+Debugging Book discusses the use of assertions in verifying a function's
+expected behavior. Assertions are used in debugging, and they are often disabled
+when optimizations are turned on. Zeller explains how they function similarly in
+C: they are disabled in production by a precompile flag.
+
+In the context of a function, assertions can either be used to validate the
+arguments to the function, or they can be used to validate the return of the
+function. These are known as *preconditions* and *postconditions*. As an
+example, we can apply this to a function that removes html markups:
+
+```{python}
+def remove_html_markup(s):
+    tag = False
+    quote = False
+    out = ""
+
+    for c in s:
+        if c == '<' and not quote:
+            tag = True
+        elif c == '>' and not quote:
+            tag = False
+        elif c == '"' or c == "'" and tag:
+            quote = not quote
+        elif not tag:
+            out = out + c
+
+    # postcondition
+    assert '<' not in out and '>' not in out
+
+    return out
+```
+
+The *postcondition* here will break `remove_html_markup` at runtime if it
+detects that the function has failed. This not only ensures a valid input, but
+it also demonstrates explicitly what the purpose of the function is.
+
+Ultimately, assertions allow us to ensure a specified behavior by embedding them
+directly into programming logic. They can be applied to important features such
+as *memory allocators*, or they can be applied to simple functions that parse a
+DateTime object from a string input.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+I feel that we could benefit from embedding assertions into some of our code.
+Regardless of it is in `chasten` or `cellveyor`, we are dealing with user input,
+and that user input needs to be validated before we use it. By embedding
+assertions into parts of our program logic, we could treat the arguments to a
+program as if they already conformed to a specific standard. The only caveat to
+this is that the program could fail unexpectedly on the user side, which could
+provide a poor user experience. If the program failed on the user's side and the
+user did not realize that it was the program's fault, they may spend hours
+trying to figure out what they did wrong, or the user may reject using one of
+our tools altogether.
+
+* **Start doing:** Considering where it would be logical to embed assertions in
+  `chasten` and `cellveyor`.
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 # Week 16
 
