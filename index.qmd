@@ -1228,11 +1228,45 @@ our tools altogether.
 
 #### Summary
 
+[This chapter](https://www.debuggingbook.org/html/StatisticalDebugger.html) in
+the Debugging Book discusses statistical debugging. Statistical debugging can
+correlate specific parts of a program with the likelihood of failure. For
+example, when executing a program that performs an operation, if we find for 60%
+of its bad runs that it breaks on line 17, and 40% of its bad runs break on line
+18, we can logically conclude that between lines 17-18 there is an issue. From
+this information, we can examine the inputs being used at those lines, the
+functions being called, or the operations being performed. This approach is
+known as *statistical debugging*.
+
+Statistical debugging begins with a collector. The collector is responsible for
+'collecting' each line of a function and testing whether or not the program
+failed for all of those lines run. After multiple runs, we can see which lines
+are unique to the failing runs, if any, and we can see which lines are unique to
+the passing runs, if any.
+
+To enhance our analysis, we can see which lines, on the basis of percentage, are
+run *more* by failing or passing runs. Now, hot spots of code that are likely to
+fail can be *localized*.
+
+Software testing enthusiasts have figured out metrics for determining
+*suspiciousness*, which is a way to quantify this likelihood of breaking a run.
+
+Statistical debugging can give helpful insight into how a program fails over a
+long, measured period of time. Although it is computationally expensive to
+calculate suspicious areas of code, the metric can be helpful as a debugger's
+last resort to pinpointing an issue.
+
 #### Action Items & Reflection
 
-* **Start doing:**
-* **Stop doing:**
-* **Keep doing:**
+This debugging technique is extremely interesting. So interesting that I may
+have to employ it in my own work. The only problem is that I often create
+programs that are not 'runnable,' per se. Most of the programs that I create
+have an infinite loop and involve real-time user input. I will take it up in my
+own time to explore statistical debugging for this kind of environment.
+
+* **Start doing:** Exploring the ideas of statistical debugging.
+* **Stop doing:** N/A
+* **Keep doing:** N/A
 
 ## Final review of all content on Developer Development web site
 
