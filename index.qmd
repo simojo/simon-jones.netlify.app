@@ -965,9 +965,9 @@ This is just one example of the power of enforcing a test suite.
 As stated, testing code comes with numerous benefits. Some of the benefits
 listed in this chapter are as follows:
 
-* **Less debugging**: Given that tested code has fewer defects, there is naturally
-  less debugging required after shipping code that has already been tested. This
-  frees the developer to focus on other things.
+* **Less debugging**: Given that tested code has fewer defects, there is
+  naturally less debugging required after shipping code that has already been
+  tested. This frees the developer to focus on other things.
 * **Increased confidence in changes**: Developers will notice the robustness of
   their code after spending some time working under the premise of test-driven
   development.
