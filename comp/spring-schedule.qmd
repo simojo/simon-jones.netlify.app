@@ -1,0 +1,106 @@
+---
+title: Spring Schedule
+date: '2024-02-02'
+date-format: long
+description: <em>2024 project schedule.</em>
+toc: true
+page-layout: full
+---
+
+## Agreed-upon consolidated schedule
+
+After the round-table discussion on `2024-02-07`, we agreed upon the following
+schedule for the spring semester:
+
+Week        | Date(s)         | Thing due
+------------|-----------------|-----------------------------------------
+Week 5      | Feb 16          | Simulation environment done (sensors, model, etc.)
+Week 7      | Mar 1           | Training and navigating efforts
+Week 10     | Mar 22          | All CIS-related writing and experimental work
+Weeks 11-13 | Mar 25 - Apr 12 | Testing drone in real world environment? (time-permitting)
+
+## Department-specific Due Dates
+
+For reference, here are the due dates gathered from both departments.
+
+### CIS Due Dates - Spring Semester
+
+Week   | Thing due
+-------|-----------------------------------------
+Week 3 | Chapter 3 (methods)
+Week 4 | Chapter 3 finished
+Week 5 | run experiments
+Week 6 | Chapter 4 (experimental results) draft
+Week 7 | Chapter 4 finished
+Week 8 | spring break
+
+### Physics Due Dates - Spring Semester
+
+Date                                                                        | Thing due
+----------------------------------------------------------------------------|-----------------------------------------
+Friday, April 12 (sent to first and second reader by 12:00 noon preferably) | First draft of comp
+Week of April 15                                                            | Oral presentations
+Friday April 26                                                             | Final version of paper
+
+## Round-table discussion notes
+
+Notes from round-table discussion on `2024-02-07`.
+
+- CIS writing-related document will be finished by the CIS department's deadline
+  (March 22), and any of the physics-related documentation should be done in the
+  following weeks, although I would like to complete it earlier.
+- Prof. Willey and I will workshop the physics write-up. He is willing to go
+  back and forth and talk about it in his office.
+- I will technically still be allowed to make important changes to the first
+  draft before the final draft of the document is submitted.
+- My methods section will be, partly, a tutorial. JJ and Prof. Willey both
+  concur on this idea.
+ - I need to include what to install, how to install it, telling students about
+   how each part connects to the ultimate goal of the project.
+- I need to utilize the idea of an appendix.
+  - The appendix can include things like equations and derivations.
+- `README.md` should still include an overview, a little bit of contextualizing,
+  and then we add on steps to run the artifact program as well.
+
+```text
+    January 2024     
+Su Mo Tu We Th Fr Sa 
+    1  2  3  4  5  6 
+ 7  8  9 10 11 12 13 
+14 15 16 17 18 19 20  Week 1
+21 22 23 24 25 26 27  Week 2
+28 29 30 31           Week 3
+
+    February 2024   
+Su Mo Tu We Th Fr Sa
+             1  2  3  Week 3
+ 4  5  6  7  8  9 10  Week 4
+11 12 13 14 15 16 17  Week 5
+18 19 20 21 22 23 24  Week 6
+25 26 27 28 29        Week 7
+
+     March 2024
+Su Mo Tu We Th Fr Sa
+                1  2  Week 7
+ 3  4  5  6  7  8  9  Week 8
+10 11 12 13 14 15 16  Week 9
+17 18 19 20 21 22 23  Week 10
+24 25 26 27 28 29 30  Week 11
+31                    Week 12
+
+     April 2024     
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6  Week 12
+ 7  8  9 10 11 12 13  Week 13
+14 15 16 17 18 19 20  Week 14
+21 22 23 24 25 26 27  Week 15
+28 29 30              Week 16
+
+      May 2024      
+Su Mo Tu We Th Fr Sa
+          1  2  3  4  Week 16
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31
+```
