@@ -17,6 +17,7 @@ Week        | Date(s)         | Thing due
 Week 5      | Feb 16          | Simulation environment done (sensors, model, etc.)
 Week 7      | Mar 1           | Training and navigating efforts
 Week 10     | Mar 22          | All CIS-related writing and experimental work
+Week 11     | Mar 24          | Submit finalized presentation slides using google form.
 Weeks 11-13 | Mar 25 - Apr 12 | Testing drone in real world environment? (time-permitting)
 
 ## Department-specific Due Dates
